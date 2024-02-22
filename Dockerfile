@@ -1,12 +1,12 @@
-FROM centos:latest
+FROM amazonlinux
 MAINTAINER vivektech.kumar@gmail.com
-RUN yum install -y httpd\
-  zip\
+RUN yum install httpd -y \
+  zip \
  unzip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page247/kindle.zip /var/www/html/
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip  /var/www/html/
 WORKDIR /var/www/html
-RUN unzip kindle.zip
-RUN cp -R __MACOSX  markups-kindle/*
-RUN rm -rf kindle.zip
+RUN unzip oxer.zip
+RUN cp -R oxer-html/* .
+RUN rm -rf oxer.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 expose 80
